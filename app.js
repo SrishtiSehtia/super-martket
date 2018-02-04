@@ -1,5 +1,3 @@
-var shoppingCart = [];
-
 var bakeryItems = [
 	{
 		img: 'images/cake.jpg',
@@ -63,8 +61,8 @@ function clearCategoryScreen() {
 }
 
 function addItemToShoppingCart(name) {
-	// document.getElementById('shopping-cart').appendChild(name)
-	console.log(name + ' added to shopping cart')
+	var shoppingCart = document.querySelector('#shopping-cart ul');
+	shoppingCart.innerHTML += '<li>' + name + '></li>';
 }
 
 function showShoppingItems(category) {
