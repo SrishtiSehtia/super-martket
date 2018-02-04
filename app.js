@@ -8,8 +8,8 @@ var bakeryItems = [
 		name: 'Croissant'
 	},
 	{
-		img: 'images/cupcake.jpg',
-		name: 'Cupcake'
+		img: 'images/strawberry-cheesecake.jpg',
+		name: 'Strawberry Cheesecake'
 	},
 	{
 		img: 'images/donut.jpg',
@@ -21,40 +21,65 @@ var bakeryItems = [
 	}
 ];
 
-var candyItems = [
+var miniSweetsItems = [
 	{
-		img: 'images/ferrero.jpg',
-		name: 'ferrero Rocher'
+		img: 'images/fruit-tarts.jpg',
+		name: 'Ferrero Rocher'
 	},
 	{
-		img: 'images/kitkat.png',
-		name: 'Kit Kat'
+		img: 'images/heart-cookies.jpg',
+		name: 'Heart Cookies'
 	},
 	{
-		img: 'images/pop-rocks.png',
-		name: 'Pop Rocks'
+		img: 'images/macaroons.jpg',
+		name: 'Macaroons'
 	},
 	{
-		img: 'images/sour-patch.png',
-		name: 'Sour Patch'
+		img: 'images/mini-cupcakes.jpg',
+		name: 'Mini Cupcakes'
 	},
 	{
-		img: 'images/twix.jpg',
-		name: 'Twix'
+		img: 'images/strawberry-cookies.jpg',
+		name: 'Strawberry Cookies'
 	}
 ];
 
-var candies = document.getElementById('candies');
+var drinkItems = [
+	{
+		img: 'images/iced-mexican-coffee.jpg',
+		name: 'Iced Mexican Coffee'
+	},
+	{
+		img: 'images/dessert-coffee.jpg',
+		name: 'Dessert Coffee'
+	},
+	{
+		img: 'images/jasmine-tea.jpg',
+		name: 'Jasmine Tea'
+	},
+	{
+		img: 'images/black-tea.jpg',
+		name: 'Black Tea'
+	},
+	{
+		img: 'images/strawberry-rasberry-smoothie.jpg',
+		name: 'Strawberry Raspberry Smoothie'
+	}
+];
+
+var miniSweets = document.getElementById('mini-sweets');
 var bakery = document.getElementById('bakery');
 var drinks = document.getElementById('drinks');
 
-candies.addEventListener('click', function() {
-  showShoppingItems(candyItems);
+miniSweets.addEventListener('click', function() {
+  showShoppingItems(miniSweetsItems);
 })
 bakery.addEventListener('click', function() {
   showShoppingItems(bakeryItems);
 })
-
+drinks.addEventListener('click', function() {
+  showShoppingItems(drinkItems);
+})
 
 function clearCategoryScreen() {
   document.getElementById('shopping-items').innerHTML = "";
@@ -62,7 +87,8 @@ function clearCategoryScreen() {
 
 function addItemToShoppingCart(name) {
 	var shoppingCart = document.querySelector('#shopping-cart ul');
-	shoppingCart.innerHTML += '<li>' + name + '></li>';
+	shoppingCart.innerHTML += '<li>' + name + '</li>';
+
 }
 
 function showShoppingItems(category) {

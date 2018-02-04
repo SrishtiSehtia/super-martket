@@ -1,4 +1,49 @@
+body {
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  background-color: #b7a1ae;
+  margin: 1.5em 1.5em;
+}
 
 img {
-  width: 20em;
+  width: 10em;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  text-align: center;
+}
+
+main nav {
+  padding-top: 1em;
+}
+
+main nav a {
+  text-decoration: none;
+  color: #511539;
+  font-size: 1.5em;
+  margin-right: 2em;
+}
+
+main nav a:hover {
+  color: #565455;
+}
+
+#shopping-items ul {
+  column-count: 2;
+  column-gap: 2px;
+}
+
+#shopping-items li {
+  list-style-type: none;
+}
+
+#supermarketCart {
+  padding-left: 1.5em;
+  height: 4em;
+  border-left: 2px solid black;
 }
