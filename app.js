@@ -49,64 +49,40 @@ var candyItems = [
 var candies = document.getElementById('candies');
 var bakery = document.getElementById('bakery');
 var drinks = document.getElementById('drinks');
-var image = document.querySelector('img');
-
-// candies.addEventListener('click', function() {
-//   var newList = document.createElement('ul');
-//   for (var i = 0; i < bakeryItems.length; i++) {
-//     newList.innerHTML += '<li> <img src="'+ bakeryItems[i].img+'"></li>';
-//   }
-//   document.getElementById('shopping-items').appendChild(newList);
-// })
-
-
 
 candies.addEventListener('click', function() {
-  addShoppingItems(candyItems);
+  showShoppingItems(candyItems);
 })
 bakery.addEventListener('click', function() {
-  addShoppingItems(bakeryItems);
+  showShoppingItems(bakeryItems);
 })
 
-function clearShoppingList() {
+
+function clearCategoryScreen() {
   document.getElementById('shopping-items').innerHTML = "";
 }
 
 function addItemToShoppingCart(name) {
-  console.log('event has been triggered')
+	// document.getElementById('shopping-cart').appendChild(name)
+	console.log(name + ' added to shopping cart')
 }
 
-function addShoppingItems(category) {
-  clearShoppingList()
+function showShoppingItems(category) {
+  clearCategoryScreen()
   var newList = document.createElement('ul');
   for (var i = 0; i < category.length; i++) {
-    newList.innerHTML += '<li> <img src=' + category[i].img +'></li>';
+		newList.innerHTML += '<li> <img src=' + category[i].img +'></li>';
     // newList.innerHTML += ( `<li> <img src = "${category[i].img}" onclick = "addItemToShoppingCart(${category[i].name})"> </li>`);
-  // }
-  document.getElementById('shopping-items').appendChild(newList);
-  console.log([newList]);
-  // for (var i = 0; i < newList.length; i++) {
-  //   newList[i].addEventListener('click', function(){
-  //     console.log('event handler added');
-  //   })
   }
+  document.getElementById('shopping-items').appendChild(newList);
+	var allImages = document.querySelectorAll('img');
+	for (var i = 0; i < allImages.length; i++) {
+		addEventListener(allImages[i], category[i]);
+	}
 }
 
-
-
-// var foods = document.querySelector('nav');
-// foods.addEventListener('click', function(event) {
-//   console.log([event.target]);
-//   console.log(event);
-//   if (event.target.tagName === 'A') {
-//     console.log(event.target.textContent);
-//   }
-// })
-//
-// function showImages(category) {
-//   console.log("I JUST GOT CLICKED")
-//   category.style.display = "inline";
-// }
-//
-// console.log("CANDIES:", candies)
-// candies.addEventListener('click', showImages);
+function addEventListener(itemImg, category) {
+	itemImg.addEventListener('click', function() {
+		addItemToShoppingCart(category.name)
+	})
+}
